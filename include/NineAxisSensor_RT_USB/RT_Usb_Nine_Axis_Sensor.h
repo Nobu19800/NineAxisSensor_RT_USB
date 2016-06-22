@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 
-
+#define DEFAULT_BAUDRATE 115200
 
 #ifdef WIN32
 
@@ -46,6 +46,7 @@
 
 
 
+
  
 
 /**
@@ -66,7 +67,7 @@ public:
 	* @param mr 地磁気へのIIRフィルタの係数
 	* @param gr 角速度へのIIRフィルタの係数
 	*/
-	RT_Usb_Nine_Axis_Sensor(bool &result, std::string serial_port = DEFAULT_PORT, unsigned int baudrate = 115200, int mx_offset = -65, int my_offset = -12, int mz_offset = -5,  double ar = 0.2, double mr = 0.2, double gr = 0.2);
+	RT_Usb_Nine_Axis_Sensor(bool &result, std::string serial_port = DEFAULT_PORT, unsigned int baudrate = DEFAULT_BAUDRATE, int mx_offset = -65, int my_offset = -12, int mz_offset = -5,  double ar = 0.2, double mr = 0.2, double gr = 0.2);
 	/**
 	*@brief デストラクタ
 	*/
@@ -77,7 +78,7 @@ public:
 	* @param serial_port デバイスファイル名
 	* @return 成功でTrue、失敗でFalse
 	*/
-	bool setSerialPort(std::string serial_port = DEFAULT_PORT, unsigned int baudrate = 115200);
+	bool setSerialPort(std::string serial_port = DEFAULT_PORT, unsigned int baudrate = DEFAULT_BAUDRATE);
 
 	/**
 	*@brief デバイスファイルを閉じる
