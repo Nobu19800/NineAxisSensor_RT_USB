@@ -166,27 +166,30 @@ RTC::ReturnCode_t NineAxisSensor_RT_USB::onDeactivated(RTC::UniqueId ec_id)
 
 RTC::ReturnCode_t NineAxisSensor_RT_USB::onExecute(RTC::UniqueId ec_id)
 {
-	double ax = 0;
-	double ay = 0;
-	double az = 0;
+	
 
-	double mx = 0;
-	double my = 0;
-	double mz = 0;
-
-	double avx = 0;
-	double avy = 0;
-	double avz = 0;
-
-	double rx = 0;
-	double ry = 0;
-	double rz = 0;
+	
 
 	if(rt_usb_sensor)
 	{
 
 		if(rt_usb_sensor->readData())
 		{
+			double ax = 0;
+			double ay = 0;
+			double az = 0;
+
+			double mx = 0;
+			double my = 0;
+			double mz = 0;
+
+			double avx = 0;
+			double avy = 0;
+			double avz = 0;
+
+			double rx = 0;
+			double ry = 0;
+			double rz = 0;
 
 			rt_usb_sensor->getAcc(ax,ay,az);
 			m_acc.data.ax = ax;
